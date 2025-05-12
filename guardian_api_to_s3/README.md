@@ -31,3 +31,16 @@ This project scrapes article data from **The Guardian Open Platform API**, filte
 
 ```bash
 pip install requests pandas boto3 awswrangler python-dotenv
+
+## 🚀 How It Works
+
+1. **Scrape Data from The Guardian**  
+   The `guardian_scrapper(pages)` function sends paginated API requests and filters articles containing the keyword `"Nigeria"` (case insensitive). The data is collected and returned as a list of dictionaries.
+
+2. **Convert Data into a DataFrame**  
+   The `convert_results_to_df()` function extracts article titles and URLs, and structures them into a Pandas DataFrame.
+
+3. **Upload to Amazon S3**  
+   The resulting DataFrame is uploaded to the specified S3 bucket using `awswrangler` and saved in Parquet format.
+
+
